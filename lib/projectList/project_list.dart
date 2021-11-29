@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter1/base/base_routes_widget.dart';
 import 'package:flutter1/projectList/project_del.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 
 // @description 作用:
 // @date: 2021/11/29
@@ -18,59 +19,86 @@ class ProjectList extends StatefulWidget {
 }
 
 class _ProjectListState extends State<ProjectList> {
-  final List<ProjectInfo> _list = [
-    ProjectInfo(
-        "云水利", "assets/images/ic_zbbanner.png", "完善数据汇总，精准高效，轻松查询。", "", "", [
-      "assets/images/ic_zbbanner.png",
-      "assets/images/ic_zbbanner.png",
-      "assets/images/ic_zbbanner.png"
+  List<ComPro> comList = [
+    ComPro("北京宏宇睿晨信息技术有限公司", "", [
+      ProjectInfo(
+          "云水利", "assets/images/ic_zbbanner.png", "完善数据汇总，精准高效，轻松查询。", "", "", [
+        "assets/images/ic_zbbanner.png",
+        "assets/images/ic_zbbanner.png",
+        "assets/images/ic_zbbanner.png"
+      ]),
+      ProjectInfo("辽宁水利信用", "assets/images/ic_zbbanner.png",
+          "告别打卡机，考勤信息随时掌控，让管理不在依赖说教。", "", "", [
+        "assets/images/ic_zbbanner.png",
+        "assets/images/ic_zbbanner.png",
+        "assets/images/ic_zbbanner.png"
+      ]),
+      ProjectInfo("水利云播-云课堂直播", "assets/images/ic_zbbanner.png", '系列"云课堂"宣贯活动',
+          "", "", [
+        "assets/images/ic_zbbanner.png",
+        "assets/images/ic_zbbanner.png",
+        "assets/images/ic_zbbanner.png"
+      ]),
+      ProjectInfo("会员服务系统", "assets/images/ic_zbbanner.png",
+          '为"中国建设工程造价管理协会"用户提供服务', "", "", [
+        "assets/images/ic_zbbanner.png",
+        "assets/images/ic_zbbanner.png",
+        "assets/images/ic_zbbanner.png"
+      ]),
+      ProjectInfo("中国水利水电工程网", "assets/images/ic_zbbanner.png",
+          "汇集水利招投标、机械设备、商品采买一站式服务平台。", "", "", [
+        "assets/images/ic_zbbanner.png",
+        "assets/images/ic_zbbanner.png",
+        "assets/images/ic_zbbanner.png"
+      ]),
+      ProjectInfo("海天恒信PC官网", "assets/images/ic_zbbanner.png",
+          "海纳百川恒久远，天容万物信无涯", "", "", [
+        "assets/images/ic_zbbanner.png",
+        "assets/images/ic_zbbanner.png",
+        "assets/images/ic_zbbanner.png"
+      ]),
+      ProjectInfo("快刷题", "assets/images/ic_zbbanner.png",
+          "一款在线练习的题库，分为免费题库和付费题库，可进行在线刷题、搜索答案等。", "", "", [
+        "assets/images/ic_zbbanner.png",
+        "assets/images/ic_zbbanner.png",
+        "assets/images/ic_zbbanner.png"
+      ]),
+      ProjectInfo("水利职业培训", "assets/images/ic_zbbanner.png", "海川韵通", "", "", [
+        "assets/images/ic_zbbanner.png",
+        "assets/images/ic_zbbanner.png",
+        "assets/images/ic_zbbanner.png"
+      ]),
+      ProjectInfo("水利工程造价题集", "assets/images/ic_zbbanner.png", "水利工程专业题型，等你来练习",
+          "", "", [
+        "assets/images/ic_zbbanner.png",
+        "assets/images/ic_zbbanner.png",
+        "assets/images/ic_zbbanner.png"
+      ])
     ]),
-    ProjectInfo("辽宁水利信用", "assets/images/ic_zbbanner.png",
-        "告别打卡机，考勤信息随时掌控，让管理不在依赖说教。", "", "", [
-      "assets/images/ic_zbbanner.png",
-      "assets/images/ic_zbbanner.png",
-      "assets/images/ic_zbbanner.png"
+    ComPro("北京世纪金政信息技术股份有限公司", "", [
+      ProjectInfo(
+          "北京干部教育网", "assets/images/ic_zbbanner.png", "北京干部教育网", "", "", [
+        "assets/images/ic_zbbanner.png",
+        "assets/images/ic_zbbanner.png",
+        "assets/images/ic_zbbanner.png"
+      ])
     ]),
-    ProjectInfo(
-        "水利云播-云课堂直播", "assets/images/ic_zbbanner.png", '系列"云课堂"宣贯活动', "", "", [
-      "assets/images/ic_zbbanner.png",
-      "assets/images/ic_zbbanner.png",
-      "assets/images/ic_zbbanner.png"
-    ]),
-    ProjectInfo("会员服务系统", "assets/images/ic_zbbanner.png",
-        '为"中国建设工程造价管理协会"用户提供服务', "", "", [
-      "assets/images/ic_zbbanner.png",
-      "assets/images/ic_zbbanner.png",
-      "assets/images/ic_zbbanner.png"
-    ]),
-    ProjectInfo("中国水利水电工程网", "assets/images/ic_zbbanner.png", "汇集水利招投标、机械设备、商品采买一站式服务平台。",
-        "", "", [
-          "assets/images/ic_zbbanner.png",
-          "assets/images/ic_zbbanner.png",
-          "assets/images/ic_zbbanner.png"
-        ]),
-    ProjectInfo("海天恒信PC官网", "assets/images/ic_zbbanner.png", "海纳百川恒久远，天容万物信无涯",
-        "", "", [
-      "assets/images/ic_zbbanner.png",
-      "assets/images/ic_zbbanner.png",
-      "assets/images/ic_zbbanner.png"
-    ]),
-    ProjectInfo("快刷题", "assets/images/ic_zbbanner.png",
-        "一款在线练习的题库，分为免费题库和付费题库，可进行在线刷题、搜索答案等。", "", "", [
-      "assets/images/ic_zbbanner.png",
-      "assets/images/ic_zbbanner.png",
-      "assets/images/ic_zbbanner.png"
-    ]),
-    ProjectInfo("水利职业培训", "assets/images/ic_zbbanner.png", "海川韵通", "", "", [
-      "assets/images/ic_zbbanner.png",
-      "assets/images/ic_zbbanner.png",
-      "assets/images/ic_zbbanner.png"
-    ]),
-    ProjectInfo(
-        "水利工程造价题集", "assets/images/ic_zbbanner.png", "水利工程专业题型，等你来练习", "", "", [
-      "assets/images/ic_zbbanner.png",
-      "assets/images/ic_zbbanner.png",
-      "assets/images/ic_zbbanner.png"
+    ComPro("其他", "", [
+      ProjectInfo("三峡员工商城", "assets/images/ic_zbbanner.png", "三峡员工商城", "", "", [
+        "assets/images/ic_zbbanner.png",
+        "assets/images/ic_zbbanner.png",
+        "assets/images/ic_zbbanner.png"
+      ]),
+      ProjectInfo("三峡员工商城", "assets/images/ic_zbbanner.png", "三峡员工商城", "", "", [
+        "assets/images/ic_zbbanner.png",
+        "assets/images/ic_zbbanner.png",
+        "assets/images/ic_zbbanner.png"
+      ]),
+      ProjectInfo("三峡员工商城", "assets/images/ic_zbbanner.png", "三峡员工商城", "", "", [
+        "assets/images/ic_zbbanner.png",
+        "assets/images/ic_zbbanner.png",
+        "assets/images/ic_zbbanner.png"
+      ])
     ])
   ];
 
@@ -78,25 +106,52 @@ class _ProjectListState extends State<ProjectList> {
   Widget build(BuildContext context) {
     return BaseRoutesWidget(
         title: "项目经历",
-        child: ListView.builder(
-            itemCount: _list.length,
-            itemBuilder: (context, index) {
-              return InkWell(
-                onTap: () {
-                  Navigator.push(context,
-                      CupertinoPageRoute(builder: (context) => ProjectDel()));
-                },
-                child: ProjectWidget(_list[index]),
-              );
-            }));
+        child: CustomScrollView(
+          slivers: [for (ComPro comPro in comList) sliverItem(comPro)],
+        ));
+  }
+
+  Widget sliverItem(ComPro comPro) {
+    int i = comList.indexOf(comPro);
+    return SliverStickyHeader(
+      header: Container(
+        color: const Color(0xfff2f2f2),
+        padding: EdgeInsets.symmetric(horizontal: 15.r, vertical: 10.r),
+        child: Row(
+          children: [
+            Text(
+              comList[i].title,
+              style: TextStyle(color: Color(0xff333333), fontSize: 12.sp),
+            )
+          ],
+        ),
+      ),
+      sliver: SliverList(
+        delegate: SliverChildBuilderDelegate(
+          (context, index) => InkWell(
+            onTap: () {
+              Navigator.push(context,
+                  CupertinoPageRoute(builder: (context) => const ProjectDel()));
+            },
+            child: ProjectWidget(comList[i].infoList[index]),
+          ),
+          childCount: comList[i].infoList.length,
+        ),
+      ),
+    );
   }
 }
 
-class ProjectWidget extends StatelessWidget {
+class ProjectWidget extends StatefulWidget {
   ProjectInfo projectInfo;
 
   ProjectWidget(this.projectInfo, {Key key}) : super(key: key);
 
+  @override
+  State<ProjectWidget> createState() => _ProjectWidgetState();
+}
+
+class _ProjectWidgetState extends State<ProjectWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -125,7 +180,7 @@ class ProjectWidget extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(projectInfo.title,
+                        Text(widget.projectInfo.title,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
@@ -133,7 +188,7 @@ class ProjectWidget extends StatelessWidget {
                                 fontSize: 15.r)),
                         Padding(
                           padding: EdgeInsets.only(top: 3.r),
-                          child: Text(projectInfo.content,
+                          child: Text(widget.projectInfo.content,
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
@@ -168,7 +223,7 @@ class ProjectWidget extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                for (String url in projectInfo.images)
+                for (String url in widget.projectInfo.images)
                   ClipRRect(
                     borderRadius: BorderRadius.all(Radius.circular(5.r)),
                     child: Image.asset(
@@ -187,16 +242,6 @@ class ProjectWidget extends StatelessWidget {
   }
 }
 
-class ProjectItem extends StatelessWidget {
-  const ProjectItem({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
-  }
-}
-
 class ProjectInfo {
   String title;
   String iconUrl;
@@ -207,4 +252,12 @@ class ProjectInfo {
 
   ProjectInfo(this.title, this.iconUrl, this.content, this.androidUrl,
       this.iosUrl, this.images);
+}
+
+class ComPro {
+  String title;
+  String iconUrl;
+  List<ProjectInfo> infoList;
+
+  ComPro(this.title, this.iconUrl, this.infoList);
 }
