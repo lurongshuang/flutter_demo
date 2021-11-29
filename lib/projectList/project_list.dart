@@ -119,9 +119,26 @@ class _ProjectListState extends State<ProjectList> {
         padding: EdgeInsets.symmetric(horizontal: 15.r, vertical: 10.r),
         child: Row(
           children: [
+            Container(
+              margin: EdgeInsets.only(right: 8.r),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(Radius.circular(5.r)),
+                  border:
+                      Border.all(color: const Color(0xfff2f2f2), width: 0.5.r)),
+              child: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(5.r)),
+                child: Image.asset(
+                  "assets/images/ic_zbbanner.png",
+                  width: 40.r,
+                  height: 30.r,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
             Text(
               comList[i].title,
-              style: TextStyle(color: Color(0xff333333), fontSize: 12.sp),
+              style: TextStyle(color: Color(0xff333333), fontSize: 14.sp),
             )
           ],
         ),
@@ -158,7 +175,7 @@ class _ProjectWidgetState extends State<ProjectWidget> {
       decoration: BoxDecoration(
           border: Border(
               bottom: BorderSide(color: Colors.grey[100], width: 0.4.r))),
-      padding: EdgeInsets.all(15.r),
+      padding: EdgeInsets.symmetric(horizontal: 15.r, vertical: 20.r),
       child: Column(
         children: [
           Row(
@@ -219,7 +236,7 @@ class _ProjectWidgetState extends State<ProjectWidget> {
             ],
           ),
           Container(
-            padding: EdgeInsets.symmetric(vertical: 10.r),
+            padding: EdgeInsets.only(top: 10.r),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
