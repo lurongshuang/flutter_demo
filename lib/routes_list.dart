@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter1/base/base_routes_widget.dart';
+import 'package:flutter1/companyDel/company_del.dart';
 import 'package:flutter1/drop_down_page.dart';
 import 'package:flutter1/widget/my_bottom_sheet2.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -42,6 +43,7 @@ class _RoutesListState extends State<RoutesList> {
     Bean("绘制一颗跳动的心", const HeadTwinkle()),
     Bean("底部弹出", const BottomSheetRoutes()),
     Bean("改造MyBottomSheet", const BoottomSheetRoutes2()),
+    Bean("企业详情测试", const CompanyDel()),
   ];
 
   @override
