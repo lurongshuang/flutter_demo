@@ -34,7 +34,7 @@ class _ProjectListState extends State<ProjectList> {
     int i = comInfoList.indexOf(comPro);
     return SliverStickyHeader(
       header: Container(
-        color: const Color(0xfff2f2f2),
+        color: const Color(0xffd6d6d6),
         padding: EdgeInsets.symmetric(horizontal: 15.r, vertical: 10.r),
         child: Row(
           children: [
@@ -44,7 +44,7 @@ class _ProjectListState extends State<ProjectList> {
                   color: Colors.white,
                   borderRadius: BorderRadius.all(Radius.circular(5.r)),
                   border:
-                      Border.all(color: const Color(0xfff2f2f2), width: 0.5.r)),
+                      Border.all(color: const Color(0xffd6d6d6), width: 0.5.r)),
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(5.r)),
                 child: Image.asset(
@@ -116,7 +116,7 @@ class _ProjectWidgetState extends State<ProjectWidget> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(5.r)),
                         border: Border.all(
-                            width: 0.4.r, color: const Color(0xfff2f2f2))),
+                            width: 0.4.r, color: const Color(0xffd6d6d6))),
                     child: ClipRRect(
                       borderRadius: BorderRadius.all(Radius.circular(5.r)),
                       child: LazyLoadImageWidget(
@@ -184,7 +184,7 @@ class _ProjectWidgetState extends State<ProjectWidget> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(5.r)),
                         border: Border.all(
-                            width: 0.4.r, color: const Color(0xfff2f2f2))),
+                            width: 0.4.r, color: const Color(0xffd6d6d6))),
                     child: ClipRRect(
                       borderRadius: BorderRadius.all(Radius.circular(5.r)),
                       child: LazyLoadImageWidget(

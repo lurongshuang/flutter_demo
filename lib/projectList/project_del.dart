@@ -49,7 +49,7 @@ class _ProjectDelState extends State<ProjectDel> {
                                     BorderRadius.all(Radius.circular(5.r)),
                                 border: Border.all(
                                     width: 0.4.r,
-                                    color: const Color(0xfff2f2f2))),
+                                    color: const Color(0xffd6d6d6))),
                             child: ClipRRect(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(5.r)),
@@ -108,7 +108,7 @@ class _ProjectDelState extends State<ProjectDel> {
                   ),
                 ),
                 SizedBox(
-                  height: 170.r,
+                  height: 220.r,
                   child: ListView.builder(
                       itemCount: widget.projectInfo.screenList.length,
                       scrollDirection: Axis.horizontal,
@@ -197,12 +197,17 @@ class ScreenView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(left: 15.r),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(5.r)),
+          border: Border.all(
+              width: 0.4.r, color: const Color(0xffd6d6d6))
+      ),
       child: ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(5.r)),
         child: LazyLoadImageWidget(
           url,
           width: 110.r,
-          height: 210.r,
+          height: 220.r,
         ),
       ),
     );
