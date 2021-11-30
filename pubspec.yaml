@@ -32,8 +32,12 @@ dependencies:
     sdk: flutter
   #屏幕适配
   flutter_screenutil: ^5.0.0+2
-  expandable_text: ^2.2.0
+  #二级分组吸顶
   flutter_sticky_header: ^0.6.0
+  #缓存图片
+  cached_network_image: ^3.1.0
+  #查看大图
+  photo_view: ^0.13.0
 
 dev_dependencies:
   flutter_test:

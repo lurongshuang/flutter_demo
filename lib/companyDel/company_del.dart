@@ -1,9 +1,9 @@
 import 'dart:ui';
 
-import 'package:expandable_text/expandable_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter1/base/base_routes_widget.dart';
+import 'package:flutter1/widget/text_expand.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // @description 作用:
@@ -35,6 +35,13 @@ class _CompanyDelState extends State<CompanyDel> {
     "企业类型     有限责任公司",
     "经营范围     技术开发、技术推广、技术转让、技术咨询、技术服务；计算机技术培训；计算机系统服务、数据处理、计算机维修；基础软件服务、应用软件服务。(企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。)"
   ];
+
+  String contentText =
+      "         北京宏宇睿晨信息技术有限公司成立于2011年，是专注于行业信息化的IT服务提供商，是北京市软件企业、高新技术企业、科技型中小企业。\n"
+      "         根据国务院《关于社会信用体系建设规划纲要》，公司致力于为水利、建设等行业提供专业的信用体系建设信息化解决方案。经过多年的发展，公司形成了“圆环形”的发展战略，暨以行业“信用体系”建设为圆心，以“信用体系标准建设”、“行业信用评价”等以服务于信用体系建设为圆环的互联网应用服务和大数据服务为牵引，彼此依托，努力成为中国行业信用体系建设的中坚力量。\n"
+      "         公司产品围绕“信用体系建设”核心，涵盖行业“信用征集体系”、“信用评价体系”、“信用标准体系”、“行业工程项目动态管理”、“人员注册管理”等领域，为政府、行业提供整体解决方案和专业服务，目前产品已在全国所有省市广泛应用。\n"
+      "         公司拥有高素质的技术研发和服务团队，建立了领先的技术管理模式、IT服务模式，形成了一套具有自身特色的、符合现代企业发展的科学管理体系，持续为客户提供卓越的产品和服务。\n"
+      "         未来，公司继续围绕“圆环形”的发展战略，持续在行业信用体系建设领域不断创新，迎接行业变革新挑战。";
 
   @override
   Widget build(BuildContext context) {
@@ -239,21 +246,16 @@ class _CompanyDelState extends State<CompanyDel> {
                       ),
                     ),
                     Container(
-                      alignment: Alignment.centerLeft,
-                      padding: EdgeInsets.only(right: 15.r, top: 20.r),
-                      child: ExpandableText(
-                        "         北京宏宇睿晨信息技术有限公司成立于2011年，是专注于行业信息化的IT服务提供商，是北京市软件企业、高新技术企业、科技型中小企业。\n"
-                        "         根据国务院《关于社会信用体系建设规划纲要》，公司致力于为水利、建设等行业提供专业的信用体系建设信息化解决方案。经过多年的发展，公司形成了“圆环形”的发展战略，暨以行业“信用体系”建设为圆心，以“信用体系标准建设”、“行业信用评价”等以服务于信用体系建设为圆环的互联网应用服务和大数据服务为牵引，彼此依托，努力成为中国行业信用体系建设的中坚力量。\n"
-                        "         公司产品围绕“信用体系建设”核心，涵盖行业“信用征集体系”、“信用评价体系”、“信用标准体系”、“行业工程项目动态管理”、“人员注册管理”等领域，为政府、行业提供整体解决方案和专业服务，目前产品已在全国所有省市广泛应用。\n"
-                        "         公司拥有高素质的技术研发和服务团队，建立了领先的技术管理模式、IT服务模式，形成了一套具有自身特色的、符合现代企业发展的科学管理体系，持续为客户提供卓越的产品和服务。\n"
-                        "         未来，公司继续围绕“圆环形”的发展战略，持续在行业信用体系建设领域不断创新，迎接行业变革新挑战。",
-                        expandText: "展开",
-                        collapseText: "收起",
-                        maxLines: 5,
-                        style: TextStyle(
-                            fontSize: 12.r, height: 1.5.r, color: Colors.white),
-                      ),
-                    ),
+                        alignment: Alignment.centerLeft,
+                        padding: EdgeInsets.only(right: 15.r, top: 20.r),
+                        child: TextLimitDisplay(
+                          text: contentText,
+                          minLines: 5,
+                          textStyle: TextStyle(
+                              fontSize: 12.r,
+                              height: 1.5.r,
+                              color: Colors.white),
+                        )),
                     Container(
                       alignment: Alignment.centerLeft,
                       padding: EdgeInsets.only(right: 15.r, top: 20.r),
