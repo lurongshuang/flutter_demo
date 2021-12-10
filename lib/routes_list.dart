@@ -4,15 +4,17 @@ import 'package:flutter1/base/base_routes_widget.dart';
 import 'package:flutter1/companyDel/company_del.dart';
 import 'package:flutter1/drop_down_page.dart';
 import 'package:flutter1/projectList/project_list.dart';
-import 'package:flutter1/widget/my_bottom_sheet2.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'boottom_sheet_routes2.dart';
 import 'bottom_sheet_routes.dart';
 import 'custom_scrollview_sliver_test.dart';
+import 'generated/l10n.dart';
 import 'gesture_detector_test.dart';
 import 'gesture_detector_test1.dart';
 import 'head_twinkle.dart';
+import 'imageList/data.dart';
+import 'imageList/image_list.dart';
 
 /// @description 作用:列表
 /// @date: 2021/9/28
@@ -46,6 +48,7 @@ class _RoutesListState extends State<RoutesList> {
     Bean("改造MyBottomSheet", const BoottomSheetRoutes2()),
     Bean("企业详情测试", const CompanyDel()),
     Bean("产品列表测试", const ProjectList()),
+    Bean("图片列表测试", ScreenshootList(listItems)),
   ];
 
   @override

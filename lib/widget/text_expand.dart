@@ -150,7 +150,7 @@ class _TextLimitDisplayState extends State<TextLimitDisplay> {
       } catch (_) {
         lineMetrics = List.generate(
           max(99, widget.maxLines ?? 99),
-              (index) => null,
+          (index) => null,
         );
       }
       setState(() {
@@ -189,17 +189,21 @@ class _TextLimitDisplayState extends State<TextLimitDisplay> {
   void _tapRecognizer() {
     setState(() => _isExpand = !_isExpand);
     if (_isExpand) {
-      (widget.onShrink ?? () => {})();
+      if (widget.onShrink != null) {
+        widget.onShrink();
+      }
     } else {
-      (widget.onExpand ?? () => {})();
+      if (widget.onExpand != null) {
+        widget.onExpand();
+      }
     }
   }
 
   String _getOverflowedText(
-      String shrinkText, {
-        String trailingText = '',
-        int limitLen = 0,
-      }) {
+    String shrinkText, {
+    String trailingText = '',
+    int limitLen = 0,
+  }) {
     int textLen = widget.text.length;
     int step = 1;
     int count = 0;
@@ -233,11 +237,11 @@ class _TextLimitDisplayState extends State<TextLimitDisplay> {
   }
 
   String _calcShrinkText(
-      List<LineMetrics> lineMetrics,
-      int len,
-      String trailingBtnText, {
-        bool isExpand = false,
-      }) {
+    List<LineMetrics> lineMetrics,
+    int len,
+    String trailingBtnText, {
+    bool isExpand = false,
+  }) {
     // 如果限制的最大行数超过了实际渲染出来的最大行数，说明根据不会出现溢出的情况
     if (len > lineMetrics.length) return widget.text;
 
@@ -247,7 +251,7 @@ class _TextLimitDisplayState extends State<TextLimitDisplay> {
 
     if (_icon(isExpand) != null) {
       trailingText =
-      '$spacerText${_getSpeWidthText(_icon(isExpand).size ?? IconTheme.of(context).size)}';
+          '$spacerText${_getSpeWidthText(_icon(isExpand).size ?? IconTheme.of(context).size)}';
     } else {
       trailingText = '$spacerText$trailingBtnText';
     }

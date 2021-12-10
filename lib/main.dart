@@ -1,8 +1,13 @@
 import 'dart:math';
 import 'dart:ui';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter1/routes_list.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'generated/l10n.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -15,9 +20,17 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
         designSize: const Size(360, 690),
         builder: () => MaterialApp(
-            title: '测试',
-            theme: ThemeData(primaryColor: Colors.white),
-            home: const RoutesList()));
+              title: '测试',
+              theme: ThemeData(primaryColor: Colors.white),
+              home: const RoutesList(),
+              localizationsDelegates: const [
+                S.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate
+              ],
+              supportedLocales: S.delegate.supportedLocales,
+            ));
   }
 }
 
@@ -37,6 +50,7 @@ class _MyHomePageState extends State<MyHomePage>
 
   @override
   void initState() {
+    S.load(const Locale('zh', 'TW'));
     controller = AnimationController(
         duration: const Duration(milliseconds: 3000), vsync: this);
     // curve = CurvedAnimation(parent: controller, curve: Curves.easeInOut);
@@ -184,5 +198,38 @@ class StarView extends CustomPainter {
 
   double _rad(double deg) {
     return deg * pi / 180;
+  }
+}
+
+//自定义类 用来应用内切换
+class ChangeLocalizations extends StatefulWidget {
+  final Widget child;
+
+  const ChangeLocalizations({Key key, this.child}) : super(key: key);
+
+  @override
+  ChangeLocalizationsState createState() => ChangeLocalizationsState();
+}
+
+class ChangeLocalizationsState extends State<ChangeLocalizations> {
+  //初始是中文
+  Locale _locale = const Locale('zh', 'CH');
+
+  changeLocale(Locale locale) {
+    setState(() {
+      _locale = locale;
+    });
+  }
+
+  //通过Localizations.override 包裹我们需要构建的页面
+  @override
+  Widget build(BuildContext context) {
+    //通过Localizations 实现实时多语言切换
+    //通过 Localizations.override 包裹一层。---这里
+    return Localizations.override(
+      context: context,
+      locale: _locale,
+      child: widget.child,
+    );
   }
 }

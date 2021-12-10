@@ -19,6 +19,14 @@ class LazyLoadImageWidget extends StatelessWidget {
       imageUrl: url,
       width: width,
       height: height,
+      maxHeightDiskCache: 640,
+      maxWidthDiskCache: 360,
+      progressIndicatorBuilder: (context, url, downloadProgress) => Container(
+        width: width,
+        height: height,
+        color: const Color(0xfff2f2f2),
+      ),
+      errorWidget: (context, url, error) => Icon(Icons.error),
       fit: BoxFit.cover,
     );
 
